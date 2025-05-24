@@ -3,6 +3,7 @@ import requests
 from openai import OpenAI
 
 # === CONFIG ===
+VALID_CODES=st.secrets["ACCESS_CODES"]
 if "access_granted" not in st.session_state:
     st.session_state.access_granted = False
 
