@@ -3,7 +3,50 @@ import requests
 from openai import OpenAI
 
 # === CONFIG ===
+
 st.set_page_config(page_title="AI Content + Video Script Studio", layout="centered")
+st.markdown("""
+    <style>
+    div.stButton > button {
+        background-color: #8f33ff;
+        color: white;
+        font-weight: bold;
+        border-radius: 12px;
+        padding: 0.6rem 1.2rem;
+        border: none;
+        transition: 0.7s;
+    }
+    div.stButton > button:hover {
+        background-color: #d946ef;
+    }
+    button:disabled {
+        background-color: #cccccc !important;
+        color: #666666 !important;
+        cursor: not-allowed;
+    }
+    </style>
+""", unsafe_allow_html=True)
+st.markdown("""
+    <div style="text-align:center; margin-top: 10px;">
+        <img src="logo.png" style="max-height: 80px;" />
+        <h1 style="color:#4b0082;">AI Content + Video Script Studio</h1>
+    </div>
+""", unsafe_allow_html=True)
+
+st.markdown("""
+    <style>
+    [data-testid="stAppViewContainer"] {
+        background: url('https://your-background-url.com/bg.jpg') no-repeat center center fixed;
+        background-size: cover;
+    }
+    .block-container {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 2rem;
+        border-radius: 15px;
+        backdrop-filter: blur(5px);
+    }
+    </style>
+""", unsafe_allow_html=True)
 
 # === API SETUP ===
 client = OpenAI(
@@ -23,6 +66,7 @@ if "script_text" not in st.session_state:
     st.session_state.script_text = ""
 if "voice_audio" not in st.session_state:
     st.session_state.voice_audio = None
+
 
 # === UTILS ===
 def limit_words(text, max_words=250):
