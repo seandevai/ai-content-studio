@@ -18,7 +18,7 @@ if not st.session_state.access_granted:
         if submitted:
             if code_input in VALID_CODES:
                 st.session_state.access_granted = True
-                st.experimental_rerun()  # può anche essere rimosso
+                st.rerun()  # può anche essere rimosso
             else:
                 st.error("❌ Invalid access code.")
 
