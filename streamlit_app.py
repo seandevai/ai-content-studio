@@ -9,7 +9,7 @@ st.set_page_config(page_title="AI Content + Video Script Studio", layout="center
 st.markdown("""
     <style>
     [data-testid="stAppViewContainer"] {
-        background: url('https://github.com/seandevai/ai-content-studio/blob/main/background.png') no-repeat center center fixed;
+        background-image: url('/background.png') no-repeat center center fixed;
         background-size: cover;
     }
     .block-container {
