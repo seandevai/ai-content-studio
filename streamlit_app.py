@@ -138,7 +138,8 @@ max_words = 300 if "Extended" in length_choice else 150
 
 btn1, btn2 = st.columns(2)
 with btn1:
-    if st.button("✨ Generate Script"):
+    disabled = not st.session_state.access_granted
+    if st.button("✨ Generate Script", disabled=disabled):
         prompt = generate_prompt(topic, audience, tone, message, max_words)
         with st.spinner("Generating script..."):
             try:
@@ -153,8 +154,9 @@ with btn1:
                 st.success("✅ Script ready!")
             except Exception as e:
                 st.error(f"❌ Error: {e}")
+
 with btn2:
-    disabled = not st.session_state.script_text.strip()
+    disabled = not st.session_state.script_text.strip() or not st.session_state.access_granted
     if st.button("🎧 Generate Voice", disabled=disabled):
         with st.spinner("Generating voice..."):
             try:
@@ -191,4 +193,3 @@ if st.session_state.voice_audio:
     st.audio(st.session_state.voice_audio, format="audio/mp3")
     with open(st.session_state.voice_audio, "rb") as f:
         st.download_button("⬇️ Download Voice", data=f, file_name="voice.mp3", mime="audio/mpeg")
-
