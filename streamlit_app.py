@@ -4,12 +4,12 @@ from openai import OpenAI
 
 # === CONFIG ===
 
-st.set_page_config(page_title="AI Content + Video Script Studio", layout="centered")
+#st.set_page_config(page_title="AI Content + Video Script Studio", layout="centered")
 # === CSS STYLE + BACKGROUND ===
 st.markdown("""
     <style>
     [data-testid="stAppViewContainer"] {
-        background-image: url('/background.png') no-repeat center center fixed;
+        background-image: url('background.png') no-repeat center center fixed;
         background-size: cover;
     }
     .block-container {
