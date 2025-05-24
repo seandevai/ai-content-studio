@@ -14,11 +14,11 @@ if not st.session_state.access_granted:
     if st.button("Unlock"):
         if code_input in VALID_CODES:
             st.session_state.access_granted = True
-            st.success("✅ Access granted!")
-            st.experimental_rerun()  # <-- QUESTA È LA CHIAVE!
+            st.success("✅ Access granted! Please refresh the page manually.")
         else:
             st.error("❌ Invalid code. Please check your PDF.")
     st.stop()
+
 
             #st.set_page_config(page_title="AI Content + Video Script Studio", layout="centered")
 # === STYLING ===
