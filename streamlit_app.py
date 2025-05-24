@@ -5,18 +5,20 @@ from openai import OpenAI
 # === CONFIG ===
 VALID_CODES=st.secrets["ACCESS_CODES"]
 # BLOCCO DI SICUREZZA
-if "access_granted" not in st.session_state:
-    st.session_state.access_granted = False
+if "code_validated" not in st.session_state:
+    st.session_state.code_validated = False
 
-if not st.session_state.access_granted:
+if not st.session_state.code_validated:
     st.title("🔒 Enter Access Code")
-    code_input = st.text_input("Access Code", type="password")
-    if st.button("Unlock"):
-        if code_input in VALID_CODES:
-            st.session_state.access_granted = True
-            st.success("✅ Access granted! Please refresh the page manually.")
-        else:
-            st.error("❌ Invalid code. Please check your PDF.")
+    with st.form("access_form"):
+        code_input = st.text_input("Access Code", type="password")
+        submitted = st.form_submit_button("Unlock")
+        if submitted:
+            if code_input in VALID_CODES:
+                st.session_state.code_validated = True
+                st.success("✅ Access granted! Continue below ⬇️")
+            else:
+                st.error("❌ Invalid code. Please check your Access Kit.")
     st.stop()
 # === STYLING ===
 st.markdown("""
