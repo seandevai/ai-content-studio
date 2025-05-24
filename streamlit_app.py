@@ -4,21 +4,29 @@ from openai import OpenAI
 
 # === CONFIG ===
 VALID_CODES=st.secrets["ACCESS_CODES"]
-# BLOCCO DI SICUREZZA
-if "code_validated" not in st.session_state:
-    st.session_state.code_validated = False
 
-if not st.session_state.code_validated:
-    st.title("🔒 Enter Access Code")
+# Codice dinamico in base al mese (es: aividgen0525)
+
+# Inizializza lo stato dell'accesso
+if "access_granted" not in st.session_state:
+    st.session_state.access_granted = False
+
+# Se non hai ancora inserito il codice giusto, mostra il form
+if not st.session_state.access_granted:
+    st.title("🔒 Access Required")
     with st.form("access_form"):
-        code_input = st.text_input("Access Code", type="password")
-        submitted = st.form_submit_button("Unlock")
-        if submitted:
+        code_input = st.text_input("Enter Access Code", type="password")
+        submit = st.form_submit_button("Unlock")
+
+        if submit:
             if code_input in VALID_CODES:
-                st.session_state.code_validated = True
-                st.success("✅ Access granted! Continue below ⬇️")
+                st.session_state.access_granted = True
+                st.success("✅ Access granted! Scroll down.")
             else:
-                st.error("❌ Invalid code. Please check your Access Kit.")
+                st.error("❌ Invalid code. Check your Access Kit.")
+    
+    # Mostra messaggio e interrompi il resto dell'app
+    st.info("Please enter the access code to continue.")
     st.stop()
 # === STYLING ===
 st.markdown("""
