@@ -47,7 +47,6 @@ def export_srt(script):
     return srt.encode("utf-8")
 
 # === INTERFACE ===
-st.title("🎬 AI Content + Video Script Studio")
 
 col1, col2 = st.columns(2)
 with col1:
@@ -57,9 +56,9 @@ with col1:
 with col2:
     audience = st.text_input("🎯 Target audience", key="audience")
     message = st.text_input("📝 Additional notes", key="message")
-    length_choice = st.selectbox("📏 Script Length", ["Standard (250 words)", "Extended (500 words)"])
+    length_choice = st.selectbox("📏 Script Length", ["Standard (150 words)", "Extended (300 words)"])
 
-max_words = 500 if "Extended" in length_choice else 250
+max_words = 300 if "Extended" in length_choice else 150
 
 btn1, btn2 = st.columns(2)
 with btn1:
@@ -78,7 +77,6 @@ with btn1:
                 st.success("✅ Script ready!")
             except Exception as e:
                 st.error(f"❌ Error: {e}")
-
 with btn2:
     disabled = not st.session_state.script_text.strip()
     if st.button("🎧 Generate Voice", disabled=disabled):
