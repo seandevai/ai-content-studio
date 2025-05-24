@@ -47,9 +47,6 @@ st.markdown("""
         <h1 style="color:#4b0082;">AI Content + Video Script Studio</h1>
     </div>
 """, unsafe_allow_html=True)
-
-# Placeholder logic below (actual logic needs to be restored if needed)
-st.write("App logic goes here...")
 # === API SETUP ===
 client = OpenAI(
     api_key=st.secrets["OPENROUTER_API_KEY"],
