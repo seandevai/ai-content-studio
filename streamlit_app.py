@@ -12,12 +12,15 @@ st.markdown("""
         background: url('https://raw.githubusercontent.com/seandevai/ai-content-studio/main/background.png') no-repeat center center fixed;
         background-size: cover;
     }
-    .block-container {
-        background-color: rgba(255, 255, 255, 0.8);
-        padding-top: 6rem;
-        border-radius: 20px;
-        backdrop-filter: blur(5px);
-    }
+.block-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 3rem;
+    border-radius: 25px;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    margin: auto;
+    max-width: 700px;
+}
     div.stButton > button {
         background-color: #8f33ff;
         color: white;
