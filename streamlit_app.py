@@ -37,6 +37,14 @@ st.markdown("""
         color: #666666 !important;
         cursor: not-allowed;
     }
+    .fade-in {
+  animation: fadeIn 1.2s ease-in-out both;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
     </style>
 """, unsafe_allow_html=True)
 
