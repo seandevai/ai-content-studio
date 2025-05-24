@@ -5,16 +5,26 @@ from openai import OpenAI
 # === CONFIG ===
 
 st.set_page_config(page_title="AI Content + Video Script Studio", layout="centered")
+# === CSS STYLE + BACKGROUND ===
 st.markdown("""
     <style>
+    [data-testid="stAppViewContainer"] {
+        background: url('https://images.unsplash.com/photo-1682687220471-c3d7d68c6e2f') no-repeat center center fixed;
+        background-size: cover;
+    }
+    .block-container {
+        background-color: rgba(255, 255, 255, 0.75);
+        padding: 2rem;
+        border-radius: 20px;
+        backdrop-filter: blur(6px);
+    }
     div.stButton > button {
         background-color: #8f33ff;
         color: white;
         font-weight: bold;
-        border-radius: 12px;
-        padding: 0.6rem 1.2rem;
-        border: none;
-        transition: 0.7s;
+        border-radius: 10px;
+        padding: 0.6rem 1.5rem;
+        transition: 0.3s;
     }
     div.stButton > button:hover {
         background-color: #d946ef;
@@ -24,26 +34,30 @@ st.markdown("""
         color: #666666 !important;
         cursor: not-allowed;
     }
-    </style>
-""", unsafe_allow_html=True)
-st.markdown("""
-    <div style="text-align:center; margin-top: 10px;">
-        <img src="logo.png" style="max-height: 80px;" />
-        <h1 style="color:#4b0082;">AI Content + Video Script Studio</h1>
-    </div>
-""", unsafe_allow_html=True)
-
-st.markdown("""
-    <style>
-    [data-testid="stAppViewContainer"] {
-        background: url('https://your-background-url.com/bg.jpg') no-repeat center center fixed;
-        background-size: cover;
+    .logo-container {
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 10px;
     }
-    .block-container {
-        background-color: rgba(255, 255, 255, 0.8);
-        padding: 2rem;
-        border-radius: 15px;
-        backdrop-filter: blur(5px);
+    .logo-container img {
+        max-height: 80px;
+    }
+    .header-title {
+        text-align: center;
+        font-size: 2em;
+        font-weight: bold;
+        color: #4b0082;
+        margin-bottom: 20px;
+    }
+    .footer {
+        text-align: center;
+        margin-top: 40px;
+        font-size: 0.9em;
+        color: #333;
+    }
+    .footer a {
+        color: #8f33ff;
+        text-decoration: none;
     }
     </style>
 """, unsafe_allow_html=True)
