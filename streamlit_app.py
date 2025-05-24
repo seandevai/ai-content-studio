@@ -18,9 +18,6 @@ if not st.session_state.access_granted:
         else:
             st.error("❌ Invalid code. Please check your PDF.")
     st.stop()
-
-
-            #st.set_page_config(page_title="AI Content + Video Script Studio", layout="centered")
 # === STYLING ===
 st.markdown("""
     <style>
