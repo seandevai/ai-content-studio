@@ -3,6 +3,19 @@ import requests
 from openai import OpenAI
 
 # === CONFIG ===
+if "access_granted" not in st.session_state:
+    st.session_state.access_granted = False
+
+if not st.session_state.access_granted:
+    st.title("🔒 Enter Access Code")
+    code_input = st.text_input("Access Code", type="password")
+    if st.button("Unlock"):
+        if code_input in VALID_CODES:
+            st.session_state.access_granted = True
+            st.success("✅ Access granted!")
+        else:
+            st.error("❌ Invalid code. Please check your PDF.")
+    st.stop()  # Blocca il resto dell'app finché non è valido
 
 #st.set_page_config(page_title="AI Content + Video Script Studio", layout="centered")
 # === STYLING ===
