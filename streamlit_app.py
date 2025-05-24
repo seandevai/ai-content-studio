@@ -14,7 +14,7 @@ st.markdown("""
     }
     .block-container {
         background-color: rgba(255, 255, 255, 0.8);
-        padding-top: 10rem;
+        padding-top: 6rem;
         border-radius: 20px;
         backdrop-filter: blur(5px);
     }
